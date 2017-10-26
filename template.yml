@@ -1,0 +1,116 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: My first serverless application.
+
+Resources:
+  GetForms:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: forms.getForms
+      Runtime: nodejs6.10
+      Events:
+        GetForms:
+          Type: Api
+          Properties:
+            Path: /forms
+            Method: get
+  GetForm:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: forms.getForm
+      Runtime: nodejs6.10
+      Events:
+        GetForms:
+          Type: Api
+          Properties:
+            Path: /form/{form}
+            Method: get
+  PostForm:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: forms.postForm
+      Runtime: nodejs6.10
+      Events:
+        GetForms:
+          Type: Api
+          Properties:
+            Path: /form
+            Method: post
+  PutForm:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: forms.putForm
+      Runtime: nodejs6.10
+      Events:
+        GetForms:
+          Type: Api
+          Properties:
+            Path: /form/{form}
+            Method: put
+  DeleteForm:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: forms.deleteForm
+      Runtime: nodejs6.10
+      Events:
+        GetForms:
+          Type: Api
+          Properties:
+            Path: /form/{form}
+            Method: delete
+
+  GetSubmissions:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: submissions.getSubmissions
+      Runtime: nodejs6.10
+      Events:
+        GetForms:
+          Type: Api
+          Properties:
+            Path: /submissions
+            Method: get
+  GetSubmission:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: submissions.getSubmission
+      Runtime: nodejs6.10
+      Events:
+        GetForms:
+          Type: Api
+          Properties:
+            Path: /submission/{submission}
+            Method: get
+  PostSubmission:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: submissions.postSubmission
+      Runtime: nodejs6.10
+      Events:
+        GetForms:
+          Type: Api
+          Properties:
+            Path: /submission
+            Method: post
+  PutSubmission:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: submissions.putSubmission
+      Runtime: nodejs6.10
+      Events:
+        GetForms:
+          Type: Api
+          Properties:
+            Path: /submission/{submission}
+            Method: put
+  DeleteSubmission:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: submissions.deleteSubmission
+      Runtime: nodejs6.10
+      Events:
+        GetForms:
+          Type: Api
+          Properties:
+            Path: /submission/{submission}
+            Method: delete
